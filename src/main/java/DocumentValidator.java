@@ -1,3 +1,4 @@
+import br.com.caelum.stella.validation.CNPJValidator;
 import br.com.caelum.stella.validation.CPFValidator;
 import br.com.caelum.stella.validation.InvalidStateException;
 
@@ -14,6 +15,15 @@ public class DocumentValidator {
             System.out.println("CPF INVÁLIDO: " + e.getMessage());
         }
 
+        String cnpj = "85663920000142";
 
+        CNPJValidator cnpjValidator = new CNPJValidator();
+
+        try {
+            cnpjValidator.assertValid(cnpj);
+            System.out.println("CPNJ VÁLIDO");
+        }catch (InvalidStateException e) {
+            System.out.println("CNPJ INVÀLIDO: " + e.getMessage());
+        }
     }
 }
